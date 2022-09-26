@@ -139,8 +139,8 @@ def checkOut():
             cursor.execute(insert_statement, (emp_id, formatted_login[0], formatted_checkOut, total_working_hours))
             dn_conn.commit()
             print(" Data Updated into MySQL")
-			
-		except Exception as e:
+		
+        except Exception as e:
 		    return str(e)
         
     except Exception as e:
