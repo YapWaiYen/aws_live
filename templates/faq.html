@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Yiso | Faq</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- support v4 icon references/syntax -->
+<link href="{{url_for('static', filename='fontawesome-free/css/all.css')}}" rel="stylesheet">
+<link href="{{url_for('static',filename='fontawesome-free/css/v4-shims.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style type="text/css">
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+}
+.topnav ::after{
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  padding: 10px;
+}
+.topnav-centered img {
+  float: none;
+  position: absolute;
+  object-fit:contain;
+  top: 7%;
+  left: 50%;
+  width:150px;
+  height:250px;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: darken;
+}
+
+.topnav a:hover {
+  color: rgb(96, 95, 95);
+  border-bottom: 3px solid rgb(21, 0, 255);
+}
+
+.topnav a.active {
+  border-bottom: 3px solid rgb(0, 0, 0);
+}
+
+.topnav-left a{
+  float:left;
+  padding-left: 30px;
+  color: #000000;
+  text-align: center;
+  justify-content: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav-right a {
+  float: right;
+  padding-left: 30px;
+  color: #000000;
+  text-align: center;
+  justify-content: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.card p,h3{
+    text-decoration-style: none;
+    color: black;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 29%;
+  padding: 0 20px;
+  align-items: center;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: -5px 100px;
+  padding-left:10px ;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row-col-card{
+  margin-top: 20px;
+  background-color: rgb(211, 229, 240);
+  justify-content: center;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    margin-right: 70px;
+  }
+}
+
+.wholefaq .w3-container{
+  margin: 0px auto;     
+  width: 800px;
+}
+
+.wholefaq button{
+  margin: 20px;
+  text-align: center;
+}
+
+.pay,.term,.delivery{
+  background-color: #cfe5f9;
+  border: 2px dotted #b5bcde;
+  text-align: center;
+  padding: 20px;
+}
+
+.pay:hover,.term:hover,.delivery:hover{
+  background-color: #b5bcde;
+  color: black;
+}
+
+.wholefaq i{
+  font-size: 25px;
+  color: rgb(116, 202, 255);
+  margin-right: 10px;
+}
+
+</style>
+</head>
+<body>
+  <div class="topnav">
+    <div class="topnav-left">
+      <a href="#home" onclick="openNav()"><i class="fa-solid fa-bars" style="font-size: 25px;"></i></a>
+      <a href="#dark" onclick="myFunction()"><i class="fa-regular fa-moon"></i></a>
+    </div>
+  
+        <div class="topnav-centered">
+          <img src="{{url_for('static', filename = 'img/logo-resized.png')}}" id="logo" >
+        </div>
+
+        <div class="topnav-right">
+            <a href="/payroll">Payroll</a>
+            <a href="/employee" >Employee</a>
+            <a href="/home" >Home</a>
+        </div>
+
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="/about">About</a>
+                <a href="/faq">FAQ</a>
+                <a href="/progress">Progress</a>
+            </div>
+        </div>
+  </div>
+  <!----------Body----------->
+  <div class="wholefaq">
+    <div class="w3-container">
+      <button onclick="myFunction('ans1'); change('e1')"  class="w3-button w3-block w3-pale-blue w3-left-align" title="Click Me To See Answer"><i class="fa-solid fa-square-caret-down" id="e1"></i> How do I track my return status?</button>
+      <div id="ans1" class="w3-hide w3-container">
+          <p>You can track return status using the tracking number provided to you by your logistic partner</p>
+      </div>
+
+      <button onclick="myFunction('ans2'); change('e2')" class="w3-button w3-block w3-pale-blue w3-left-align" title="Click Me To See Answer" ><i class="fa-solid fa-square-caret-down" id="e2"></i> How do I know if replacement has been processed?</button>
+      <div id="ans2" class="w3-hide w3-container">
+          <p>You will receive an email notification stating that we are now processing the replacement for your order. You will also be givena new order number.</p>
+      </div>
+  
+      <button onclick="myFunction('ans3'); change('e3')" class="w3-button w3-block w3-pale-blue w3-left-align" title="Click Me To See Answer"><i class="fa-solid fa-square-caret-down" id="e3"></i>  Do you guys have a physical store?</button>
+      <div id="ans3" class="w3-hide w3-container ">
+          <p>Sorry Currently, we do not have any physical store yhet but only an office for Self-pick upp>
+      </div>
+
+      <button onclick="myFunction('ans4'); change('e4')" class="w3-button w3-block w3-pale-blue w3-left-align" title="Click Me To See Answer"><i class="fa-solid fa-square-caret-down" id="e4"></i> Do you have a decoration team?</button>
+      <div id="ans4" class="w3-hide w3-container">
+          <p> Yes, we do have a team who handles decoration for event. Kindly email to us your enquiries at hi@bullandrabbit.com.my</p>
+      </div>    
+
+      <button onclick="myFunction('ans5'); change('e5')" class="w3-button w3-block w3-pale-blue w3-left-align" title="Click Me To See Answer"><i class="fa-solid fa-square-caret-down" id="e5"></i>  How long is the quality evaluation process</button>
+      <div id="ans5" class="w3-hide w3-container">
+          <p>Replacement/ Refund process only begins after we have completed evaluating your returned product.
+              This quality evaluation process may last up to 2 business days.<br />
+              You will receive the credit including return courier charges within 5-15 working days, depending on your bank policies</p>
+      </div>
+  
+      <button onclick="myFunction('ans6'); change('e6')" class="w3-button w3-block w3-pale-blue w3-left-align" title="Click Me To See Answer"><i class="fa-solid fa-square-caret-down"  id="e6"></i> Can I return an item after 7~14 days upon receipt</button>
+      <div id="ans6" class="w3-hide w3-container">
+          <p>Your item cannot be returned after 7 days for items</p>
+      </div>          
+          
+      <button onclick="myFunction('ans7'); change('e7')" class="w3-button w3-block w3-pale-blue w3-left-align" title="Click Me To See Answer"><i class="fa-solid fa-square-caret-down"  id="e7"></i>  Can I add gift card message for my order?</button>
+      <div id="ans7" class="w3-hide w3-container">
+          <p>Yes, always welcome. You are allowed to have max. 200 characters in the gift card, Once, it is done just add to cart</p>
+      </div>
+      
+      <button onclick="myFunction('ans8'); change('e8')" class="w3-button w3-block w3-pale-blue w3-left-align" title="Click Me To See Answer"><i class="fa-solid fa-square-caret-down"  id="e8"></i>  Timelead for Personalized Balloon Decoration Event?</button>
+      <div id="ans8" class="w3-hide w3-container">
+          <p>We need at least 3 days in advance, any urgent enquiries please whatapps to us at 018 2070 689</p>
+      </div>       
+    </div> 
+  </div>
+
+
+    <!----------Footer----------->
+    <div class="footer">
+        <p>© Copyright 2022 Yiso Solution & System - All Rights Reserved</p>
+    </div>
+
+    <!----------Script----------->
+    <script>
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+        
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+
+        function myFunction() {
+           var element = document.body;
+           var r=document.getElementById
+            element.classList.toggle("dark-mode");
+            r.style.backgroundImage = "../static/img/logo.resized.png";
+        }
+
+        function myFunction(id) {
+            var x = document.getElementById(id);
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                    x.previousElementSibling.className = 
+                    x.previousElementSibling.className.replace("w3-black", "w3-red");
+                } else { 
+                    x.className = x.className.replace(" w3-show", "");
+                    x.previousElementSibling.className = 
+                    x.previousElementSibling.className.replace("w3-red", "w3-black");
+                }
+        }
+
+        function change(y) {
+            var y=document.getElementById(y);
+                if(y.className=="fa-solid fa-square-caret-down")
+                {
+                     y.className="fa-solid fa-square-caret-up"
+    
+                }else{
+                    y.className="fa-solid fa-square-caret-down"
+                }
+               
+        }
+        </script>
+</body>
+
+</html>
